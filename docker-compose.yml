@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+  ros_ws:
+    build:
+      context: ./
+    image: ros_ws
+    container_name: ros_ws
+    runtime: nvidia
+    environment:
+      - DISPLAY                           # GUI related see README if it's not working
+      - QT_X11_NO_MITSHM=1                # GUI related see README if it's not working
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix     # GUI related see README if it's not working
+      - ./src:/ros_ws/src
+    tty: true 
+    command: bash -c 'source /opt/ros/melodic/setup.bash; catkin_make; /bin/bash'

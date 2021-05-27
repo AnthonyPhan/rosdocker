@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -q -y --no-install-recommends \
       ros-melodic-moveit \
       libasio-dev \
       python3-dev python3-setuptools python3-pip python3-yaml \
+      git \
       #other
       && rm -rf /var/lib/apt/lists/*
 
